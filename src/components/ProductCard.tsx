@@ -198,45 +198,50 @@ export default function ProductCard({ product, index }: Props) {
           </div>
         )}
 
-        {/* CTA */}
-        <a
-          href={product.inStock ? waLink : undefined}
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 8,
-            background: product.inStock
-              ? "linear-gradient(135deg, #5eead4, #2dd4bf)"
-              : "rgba(100,116,139,0.15)",
-            color: product.inStock ? "#0d1b2e" : "#475569",
-            padding: "11px 16px",
-            borderRadius: 10,
-            fontWeight: 700,
-            fontSize: 14,
-            textDecoration: "none",
-            pointerEvents: product.inStock ? "auto" : "none",
-            marginTop: 4,
-            transition: "filter 0.15s, transform 0.15s",
-            letterSpacing: "0.03em",
-          }}
-          onMouseEnter={(e) => {
-            if (product.inStock) {
-              (e.currentTarget as HTMLElement).style.filter = "brightness(1.1)";
-              (e.currentTarget as HTMLElement).style.transform = "scale(1.02)";
-            }
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.filter = "brightness(1)";
-            (e.currentTarget as HTMLElement).style.transform = "scale(1)";
-          }}
-        >
-          <MessageCircle size={15} />
-          {product.inStock ? "Pedir por WhatsApp" : "Agotado"}
-        </a>
+        {/* Price + CTA */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 4, gap: 12 }}>
+          <div>
+            <span style={{ fontSize: 11, color: "#475569", display: "block", marginBottom: 1 }}>Precio</span>
+            <span style={{ fontSize: 26, fontWeight: 900, color: "#5eead4", lineHeight: 1 }}>
+              RD${product.price.toLocaleString()}
+            </span>
+          </div>
+          <a
+            href={product.inStock ? waLink : undefined}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              background: product.inStock ? "linear-gradient(135deg, #5eead4, #2dd4bf)" : "rgba(100,116,139,0.15)",
+              color: product.inStock ? "#0d1b2e" : "#475569",
+              padding: "10px 16px",
+              borderRadius: 10,
+              fontWeight: 700,
+              fontSize: 13,
+              textDecoration: "none",
+              pointerEvents: product.inStock ? "auto" : "none",
+              whiteSpace: "nowrap",
+              transition: "filter 0.15s, transform 0.15s",
+            }}
+            onMouseEnter={(e) => {
+              if (product.inStock) {
+                (e.currentTarget as HTMLElement).style.filter = "brightness(1.1)";
+                (e.currentTarget as HTMLElement).style.transform = "scale(1.03)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.filter = "brightness(1)";
+              (e.currentTarget as HTMLElement).style.transform = "scale(1)";
+            }}
+          >
+            <MessageCircle size={14} />
+            Pedir
+          </a>
+        </div>
       </div>
     </motion.div>
   );
 }
+
