@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { MapPin, Clock } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -27,17 +28,13 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h3
-              style={{
-                fontSize: 24,
-                fontWeight: 900,
-                letterSpacing: "0.1em",
-                color: "#f0f9ff",
-                marginBottom: 8,
-              }}
-            >
-              TIENDITA <span style={{ color: "#5eead4" }}>VS</span>
-            </h3>
+            <Image
+              src="/logo.jpg"
+              alt="Tiendita Vape Store"
+              width={160}
+              height={160}
+              style={{ borderRadius: 12, marginBottom: 16, width: 160, height: "auto" }}
+            />
             <p style={{ color: "#64748b", fontSize: 14, lineHeight: 1.7, marginBottom: 20 }}>
               Tu vape store de confianza en Bellavista. Productos originales, precios justos.
             </p>

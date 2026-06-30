@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -85,39 +86,32 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Main title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.8 }}
-          style={{
-            fontSize: "clamp(3rem, 10vw, 7rem)",
-            fontWeight: 900,
-            letterSpacing: "-0.02em",
-            lineHeight: 1,
-            marginBottom: 8,
-            background: "linear-gradient(135deg, #f0f9ff 40%, #5eead4 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          style={{ marginBottom: 32, display: "flex", justifyContent: "center" }}
         >
-          TIENDITA
-        </motion.h1>
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45, duration: 0.8 }}
-          style={{
-            fontSize: "clamp(1.2rem, 4vw, 2rem)",
-            fontWeight: 300,
-            letterSpacing: "0.4em",
-            color: "#5eead4",
-            marginBottom: 32,
-          }}
-          className="glow-cyan"
-        >
-          VAPE STORE
-        </motion.h2>
+          <div
+            style={{
+              position: "relative",
+              borderRadius: 20,
+              overflow: "hidden",
+              boxShadow: "0 0 60px rgba(94,234,212,0.2), 0 20px 60px rgba(0,0,0,0.5)",
+              border: "1px solid rgba(94,234,212,0.15)",
+            }}
+          >
+            <Image
+              src="/logo.jpg"
+              alt="Tiendita Vape Store"
+              width={380}
+              height={380}
+              style={{ display: "block", width: "clamp(220px, 50vw, 380px)", height: "auto" }}
+              priority
+            />
+          </div>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}

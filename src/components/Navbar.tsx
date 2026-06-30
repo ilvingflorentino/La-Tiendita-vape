@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   { href: "#catalogo", label: "Catálogo" },
@@ -41,11 +42,15 @@ export default function Navbar() {
       }}
     >
       {/* Logo */}
-      <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
-        <SmokeIcon />
-        <span style={{ fontSize: 18, fontWeight: 700, letterSpacing: "0.1em", color: "#f0f9ff" }}>
-          TIENDITA <span style={{ color: "#5eead4" }}>VS</span>
-        </span>
+      <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+        <Image
+          src="/logo.jpg"
+          alt="Tiendita Vape Store"
+          width={140}
+          height={52}
+          style={{ objectFit: "contain", height: 52, width: "auto" }}
+          priority
+        />
       </a>
 
       {/* Desktop links */}
@@ -161,17 +166,3 @@ export default function Navbar() {
   );
 }
 
-function SmokeIcon() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="14" r="13" stroke="#5eead4" strokeWidth="1.5" />
-      <path
-        d="M14 20 C14 20 11 16 11 13 C11 10.5 12.5 9 14 9 C15.5 9 17 10.5 17 13 C17 16 14 20 14 20Z"
-        fill="#5eead4"
-        opacity="0.7"
-      />
-      <path d="M14 9 C14 9 13 7 13.5 5.5" stroke="#5eead4" strokeWidth="1.2" strokeLinecap="round" opacity="0.8" />
-      <path d="M14 8 C14 8 15.5 6.5 15 5" stroke="#5eead4" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-    </svg>
-  );
-}
